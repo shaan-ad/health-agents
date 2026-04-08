@@ -1,6 +1,6 @@
 # Architecture
 
-Paperclip for HealthTech is a three-layer framework: an orchestration engine, a HIPAA compliance middleware, and clinical workflow templates.
+Health Agents is a three-layer framework: an orchestration engine, a HIPAA compliance middleware, and clinical workflow templates.
 
 ## System Overview
 

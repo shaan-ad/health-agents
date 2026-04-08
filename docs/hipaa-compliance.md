@@ -2,7 +2,7 @@
 
 ## Overview
 
-Paperclip for HealthTech makes HIPAA compliance structural, not optional. Every agent action passes through the compliance middleware automatically. This document explains what the framework enforces and what remains the responsibility of the deploying organization.
+Health Agents makes HIPAA compliance structural, not optional. Every agent action passes through the compliance middleware automatically. This document explains what the framework enforces and what remains the responsibility of the deploying organization.
 
 ## What the Framework Enforces
 
@@ -74,7 +74,7 @@ The framework provides the technical building blocks, but HIPAA compliance requi
 ## Configuration
 
 ```typescript
-import { HIPAAMiddleware } from "paperclip-healthtech";
+import { HIPAAMiddleware } from "health-agents";
 
 const middleware = new HIPAAMiddleware({
   sensitivity: "standard",      // PHI detection sensitivity

@@ -55,7 +55,7 @@ export interface LLMProvider {
  * Create a provider based on environment configuration.
  */
 export function createProvider(): LLMProvider {
-  const providerName = process.env.PAPERCLIP_HT_PROVIDER || "anthropic";
+  const providerName = process.env.HEALTH_AGENTS_PROVIDER || "anthropic";
 
   switch (providerName.toLowerCase()) {
     case "anthropic":

@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install paperclip-healthtech
+npm install health-agents
 ```
 
 Install your preferred LLM provider:
@@ -20,7 +20,7 @@ npm install openai
 
 ```bash
 # Set provider and API key
-export PAPERCLIP_HT_PROVIDER=anthropic
+export HEALTH_AGENTS_PROVIDER=anthropic
 export ANTHROPIC_API_KEY=your-key-here
 ```
 
@@ -33,7 +33,7 @@ import {
   WorkflowEngine,
   createClinicalDocProcessingWorkflow,
   createProvider,
-} from "paperclip-healthtech";
+} from "health-agents";
 
 const provider = createProvider();
 const engine = new WorkflowEngine(provider);
@@ -60,7 +60,7 @@ console.log("Routing:", result.agentResults.get("router")?.output);
 ### 2. Build a custom workflow
 
 ```typescript
-import { workflow, BaseAgent, WorkflowEngine, type AgentContext } from "paperclip-healthtech";
+import { workflow, BaseAgent, WorkflowEngine, type AgentContext } from "health-agents";
 
 class MyAgent extends BaseAgent {
   getSystemPrompt() {
@@ -84,7 +84,7 @@ const result = await engine.execute(myWorkflow, "Analyze this patient record");
 ### 3. Export audit logs
 
 ```typescript
-import { exportAsJSON, exportAsCSV, exportAsReport } from "paperclip-healthtech";
+import { exportAsJSON, exportAsCSV, exportAsReport } from "health-agents";
 
 // After running a workflow...
 const json = exportAsJSON(engine.auditLogger);

@@ -1,5 +1,5 @@
 {
-  "name": "paperclip-healthtech",
+  "name": "health-agents",
   "version": "0.1.0",
   "description": "HIPAA-compliant multi-agent orchestration framework for healthcare. Built-in compliance middleware, clinical workflow templates, and audit logging.",
   "main": "dist/index.js",
@@ -25,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shaan-ad/paperclip-healthtech.git"
+    "url": "https://github.com/shaan-ad/health-agents.git"
   },
   "engines": {
     "node": ">=20.0.0"

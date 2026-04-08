@@ -2,7 +2,7 @@
 
 ## Overview
 
-A four-agent pipeline that processes raw clinical documents into structured, classified, and routed outputs. This is the default template included with Paperclip for HealthTech.
+A four-agent pipeline that processes raw clinical documents into structured, classified, and routed outputs. This is the default template included with Health Agents.
 
 ## Pipeline
 
@@ -68,7 +68,7 @@ import {
   createClinicalDocProcessingWorkflow,
   createProvider,
   exportAsReport,
-} from "paperclip-healthtech";
+} from "health-agents";
 
 const provider = createProvider();
 const engine = new WorkflowEngine(provider);
@@ -95,8 +95,8 @@ const auditReport = exportAsReport(engine.auditLogger);
 You can use the individual agents in your own workflows:
 
 ```typescript
-import { ExtractorAgent, ClassifierAgent } from "paperclip-healthtech";
-import { workflow } from "paperclip-healthtech";
+import { ExtractorAgent, ClassifierAgent } from "health-agents";
+import { workflow } from "health-agents";
 
 const custom = workflow("my-pipeline")
   .agent("extract", ExtractorAgent, { phi_access: "read" })

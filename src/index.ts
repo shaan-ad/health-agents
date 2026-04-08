@@ -1,5 +1,5 @@
 /**
- * Paperclip for HealthTech
+ * Health Agents: HIPAA-compliant multi-agent orchestration for healthcare.
  *
  * HIPAA-compliant multi-agent orchestration framework for healthcare.
  */

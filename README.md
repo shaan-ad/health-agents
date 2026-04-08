@@ -1,8 +1,8 @@
-# Paperclip for HealthTech
+# Health Agents
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-20+-green.svg)](https://nodejs.org)
-[![CI](https://github.com/shaan-ad/paperclip-healthtech/actions/workflows/ci.yml/badge.svg)](https://github.com/shaan-ad/paperclip-healthtech/actions)
+[![CI](https://github.com/shaan-ad/health-agents/actions/workflows/ci.yml/badge.svg)](https://github.com/shaan-ad/health-agents/actions)
 
 **HIPAA-compliant multi-agent orchestration for healthcare.**
 
@@ -10,28 +10,28 @@ Define multi-agent workflows as DAGs. Every agent action passes through a compli
 
 ## Why This Exists
 
-[Paperclip](https://paperclip.ing) (~50k stars) proved that multi-agent orchestration works. But it has zero healthcare awareness: no PHI detection, no access control, no compliance audit trails, no clinical templates.
+Multi-agent orchestration is powerful, but existing frameworks have zero healthcare awareness: no PHI detection, no access control, no compliance audit trails, no clinical templates.
 
-Healthcare organizations need orchestration that is compliant by default.
+Healthcare organizations need orchestration that is compliant by default. Health Agents makes HIPAA compliance structural, not optional.
 
-| | Paperclip | Paperclip for HealthTech |
-|---|---|---|
-| **HIPAA compliance** | None | Built-in middleware (PHI detection, access control, audit logging) |
-| **PHI handling** | No awareness | Automatic detection, redaction, and access enforcement |
-| **Audit trail** | Operational logs | Immutable hash-chained audit log, exportable for compliance reviews |
-| **Clinical templates** | None | Document processing pipeline (extractor, classifier, flagger, router) |
-| **Access control** | Agent-level permissions | PHI-specific RBAC (none, metadata_only, read, read_write) |
-| **Consent tracking** | None | Patient consent verification before processing |
-| **LLM support** | Claude-focused | Provider-agnostic (Claude, OpenAI) |
+**What's built in:**
+
+- **PHI detection** for all 18 HIPAA Safe Harbor identifiers
+- **Role-based access control** with four PHI access levels
+- **Immutable audit logging** with hash-chained tamper detection
+- **Automatic PHI redaction** for agents without sufficient access
+- **Patient consent tracking** with scope and expiration
+- **Clinical workflow templates** ready to use out of the box
+- **Provider-agnostic** LLM support (Claude, OpenAI)
 
 ## Quick Start
 
 ```bash
 # Install
-npm install paperclip-healthtech @anthropic-ai/sdk
+npm install health-agents @anthropic-ai/sdk
 
 # Configure
-export PAPERCLIP_HT_PROVIDER=anthropic
+export HEALTH_AGENTS_PROVIDER=anthropic
 export ANTHROPIC_API_KEY=your-key
 
 # Run the clinical document processing template
@@ -65,7 +65,7 @@ Every LLM call from every agent passes through the HIPAA middleware automaticall
 ## Define a Workflow
 
 ```typescript
-import { workflow, WorkflowEngine, BaseAgent, type AgentContext } from "paperclip-healthtech";
+import { workflow, WorkflowEngine, BaseAgent, type AgentContext } from "health-agents";
 
 class TriageAgent extends BaseAgent {
   getSystemPrompt() {
@@ -109,7 +109,7 @@ workflow("example")
 Immutable, hash-chained audit trail. Every action logged with actor, action, resource, data classification, and outcome. Tamper-evident by design.
 
 ```typescript
-import { exportAsJSON, exportAsCSV, exportAsReport } from "paperclip-healthtech";
+import { exportAsJSON, exportAsCSV, exportAsReport } from "health-agents";
 
 const report = exportAsReport(engine.auditLogger);
 const integrity = engine.auditLogger.verifyIntegrity(); // { valid: true }
@@ -141,7 +141,7 @@ Built-in four-agent pipeline:
 | **Router** | metadata_only | Routing decision with destination, priority, rationale |
 
 ```typescript
-import { createClinicalDocProcessingWorkflow, WorkflowEngine } from "paperclip-healthtech";
+import { createClinicalDocProcessingWorkflow, WorkflowEngine } from "health-agents";
 
 const workflow = createClinicalDocProcessingWorkflow();
 const engine = new WorkflowEngine(provider);
@@ -168,8 +168,8 @@ See [docs/architecture.md](docs/architecture.md) for the full system design.
 Contributions welcome. See the [docs](docs/) for architecture details.
 
 ```bash
-git clone https://github.com/shaan-ad/paperclip-healthtech.git
-cd paperclip-healthtech
+git clone https://github.com/shaan-ad/health-agents.git
+cd health-agents
 npm install
 npm test
 ```
